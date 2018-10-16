@@ -39,9 +39,11 @@
     "hammerjs": "^2.0.8",
     "inversify": "^4.13.0",
     "inversify-express-utils": "^6.1.0",
+    "mysql2": "^1.6.1",
     "normalize.css": "^8.0.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
+    "typeorm": "^0.2.7",
     "zone.js": "^0.8.24"
   },
   "devDependencies": {

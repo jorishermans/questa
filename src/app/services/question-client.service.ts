@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Question, Answer } from '../../../api/services/question.service';
 import { Observable, of } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
+import { Question } from '../../../api/entity/question';
+import { Answer } from '../../../api/entity/answer';
 
 const httpOptions = {
   headers: new HttpHeaders({

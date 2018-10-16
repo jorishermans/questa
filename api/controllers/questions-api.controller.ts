@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { interfaces, controller, httpGet, httpPost, request, response, requestParam, queryParam } from 'inversify-express-utils';
-import { QuestionService, Question } from '../services/question.service';
+import { QuestionService } from '../services/question.service';
+import { Question } from '../entity/question';
 
 @controller('/api')
 export class ApiController implements interfaces.Controller {

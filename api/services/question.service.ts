@@ -1,33 +1,39 @@
 import { injectable, inject } from "inversify";
 import "reflect-metadata";
-import { filterQueryId } from "@angular/core/src/view/util";
-
-export interface Question {
-    id?: number;
-    title: string;
-    text: string;
-    views: number;
-    votes: string[];
-    labels: string[];
-    answers?: Answer[];
-}
-
-export interface Answer {
-    votes: string[];
-    text: string;
-    user: string;
-}
+import { Question } from "../entity/question";
+import { Answer } from "../entity/answer";
+import { Vote } from "../entity/vote";
+// import { createConnection, Connection } from "typeorm";
 
 @injectable()
 export class QuestionService {
 
     public questions: Question[];
+    // public connection: Connection;
 
     constructor() {
         console.log('make a new instance of question service on the server ...')
-        this.questions = [{
-            id: 0, title: "This is my question?", text: "Can we see a question?", views: 0, votes: [], labels: [], answers: []
-        }];
+        
+        this.makeConnection();
+    }
+
+    public makeConnection() {
+        /* createConnection({
+            type: "mysql",
+            host: "localhost",
+            port: 3306,
+            username: "root",
+            password: "admin",
+            database: "questa",
+            entities: [
+                Answer, Question, Vote
+            ],
+            synchronize: true,
+            logging: false
+        }).then(connection => {
+            this.connection = connection;
+            console.log("connection is been made");
+        }).catch(error => console.log(error)); */
     }
 
     public create(question: Question) {

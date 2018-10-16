@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { QuestionClientService } from '../services/question-client.service';
-import { Observable } from 'rxjs';
-import { Question } from '../../../api/services/question.service';
-import { switchMap } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Question } from '../../../api/entity/question';
 
 @Component({
   selector: 'app-questions',
@@ -42,7 +40,7 @@ export class QuestionComponent implements OnInit {
   }
 
   onSubmit() {
-    this.questionService.addAnwser(this.model.id, { text: this.answer, user: 'anonym', votes: []}).subscribe(_ => {
+    this.questionService.addAnwser(this.model.id, { text: this.answer, user: 'anonym', votes: 0, question: this.model}).subscribe(_ => {
         
     });
   }

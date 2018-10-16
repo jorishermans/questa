@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { QuestionClientService } from '../services/question-client.service';
 import { Observable } from 'rxjs';
-import { Question } from '../../../api/services/question.service';
 import { Router } from '@angular/router';
+import { Question } from '../../../api/entity/question';
 
 @Component({
   selector: 'app-questions',
@@ -24,7 +24,7 @@ export class AddQuestionsComponent implements OnInit {
   public model: Question;
 
   constructor(private questionService: QuestionClientService, private router: Router) {
-      this.model = { title: '', text: '', views: 0, votes: [], labels: [] };
+      this.model = { title: '', text: '', views: 0, votes: 3, answers: [] };
   }
 
   ngOnInit() {}

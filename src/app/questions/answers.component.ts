@@ -1,8 +1,6 @@
 import { Input, Component, OnInit } from '@angular/core';
 import { QuestionClientService } from '../services/question-client.service';
-import { Observable } from 'rxjs';
-import { Question } from '../../../api/services/question.service';
-import { switchMap } from 'rxjs/operators';
+import { Question } from '../../../api/entity/question';
 
 @Component({
   selector: 'app-answers',
