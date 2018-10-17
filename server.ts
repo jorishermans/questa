@@ -7,9 +7,13 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 import { Container } from 'inversify';
-import { interfaces, InversifyExpressServer, TYPE } from 'inversify-express-utils';
+import { InversifyExpressServer } from 'inversify-express-utils';
 import * as bodyParser from 'body-parser';
 import { QuestionService } from './api/services/question.service';
+/** import * as models from './api/models';
+import Question from './api/models/question.model';
+import User from './api/models/user.model';
+import Answer from './api/models/answer.model'; */
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -72,7 +76,14 @@ app.get('*', (req, res) => {
   });
 });
 
-// Start up the Node server
 app.listen(PORT, () => {
   console.log(`Node server listening on http://localhost:${PORT}`);
 });
+
+// Start up the Node server
+/** models.sequelize.addModels([Answer, Question, User]);
+models.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Node server listening on http://localhost:${PORT}`);
+  });
+}); */

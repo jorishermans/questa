@@ -1,5 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const fs = require('fs');
+const nodeModules = {};
+fs.readdirSync('node_modules')
+  .filter(function(x) {
+    return ['.bin'].indexOf(x) === -1;
+  })
+  .forEach(function(mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
 
 module.exports = {
   entry: { server: './server.ts' },
@@ -7,7 +16,7 @@ module.exports = {
   target: 'node',
   mode: 'none',
   // this makes sure we include node_modules and other 3rd party libraries
-  externals: [/node_modules/],
+  externals: nodeModules,
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
